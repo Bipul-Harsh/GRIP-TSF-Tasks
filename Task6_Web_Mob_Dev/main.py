@@ -94,7 +94,6 @@ class SearchSparkWeb(unittest.TestCase):
         self.driver.back()
 
     def tearDown(self):
-        time.sleep(5)
         self.driver.close()
 
 if __name__ == "__main__":

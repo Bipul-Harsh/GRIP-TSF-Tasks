@@ -20,6 +20,7 @@ HT_RATIO = args.ht_ratio
 WT_SIZE = args.wt_size
 HT_SIZE = args.ht_size
 HEIGHT = args.pallete_size
+WINDOW_NAME = "Color Picker"
 
 image = cv2.imread(INPUT_FILE)
 assert type(image) != type(None), "Please provide valid image location"
@@ -46,11 +47,11 @@ def display_pixel_value(event, x, y, flags, params):
     if event == cv2.EVENT_MBUTTONDBLCLK:
         print(f'Your selected pixel : {image[y,x]}')
 
-cv2.namedWindow("Color Picker")
-cv2.setMouseCallback("Color Picker", display_pixel_value)
+cv2.namedWindow(WINDOW_NAME)
+cv2.setMouseCallback(WINDOW_NAME, display_pixel_value)
 
 while(True):
-    cv2.imshow("Color Picker", updated_image)
+    cv2.imshow(WINDOW_NAME, updated_image)
 
     if cv2.waitKey(1) == ord('q'):
         break

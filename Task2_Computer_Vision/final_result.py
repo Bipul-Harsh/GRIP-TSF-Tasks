@@ -44,8 +44,8 @@ def display_pixel_value(event, x, y, flags, params):
     updated_image = np.vstack((image, np.array([image[y, x]]).repeat(HEIGHT*image.shape[1], axis=0).reshape(HEIGHT, image.shape[1], 3) ))
     color = (255, 255, 255) if image[y,x,2]<105 else (0,0,0)
     cv2.putText(updated_image, text=f"RGB: ({image[y,x][2]},{image[y,x][1]},{image[y,x][0]})", org=(10, image.shape[0]+HEIGHT-10), fontFace=cv2.FONT_HERSHEY_COMPLEX, fontScale=0.6, color=color, thickness=1, lineType=cv2.LINE_AA)
-    if event == cv2.EVENT_MBUTTONDBLCLK:
-        print(f'Your selected pixel : {image[y,x]}')
+    if event == cv2.EVENT_LBUTTONDBLCLK:
+        print(f'Your selected pixel : {tuple(image[y,x])}')
 
 cv2.namedWindow(WINDOW_NAME)
 cv2.setMouseCallback(WINDOW_NAME, display_pixel_value)
